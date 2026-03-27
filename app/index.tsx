@@ -1,12 +1,36 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Pressable, StyleSheet, View } from "react-native";
 
 export default function Index() {
+  const [changeColor, setChangeColor] = useState("rosso");
+
   return (
     <View style={styles.contenitore}>
       <View style={styles.box}>
-        <Text style={styles.circles}></Text>
-        <Text style={styles.circle2}></Text>
-        <Text style={styles.circle3}></Text>
+        <Pressable onPress={() => setChangeColor("rosso")}>
+          <View
+            style={[
+              styles.cerchio,
+              { backgroundColor: changeColor === "rosso" ? "red" : "grey" },
+            ]}
+          ></View>
+        </Pressable>
+        <Pressable onPress={() => setChangeColor("giallo")}>
+          <View
+            style={[
+              styles.cerchio,
+              { backgroundColor: changeColor === "giallo" ? "yellow" : "grey" },
+            ]}
+          ></View>
+        </Pressable>
+        <Pressable onPress={() => setChangeColor("verde")}>
+          <View
+            style={[
+              styles.cerchio,
+              { backgroundColor: changeColor === "verde" ? "green" : "grey" },
+            ]}
+          ></View>
+        </Pressable>
       </View>
     </View>
   );
@@ -29,39 +53,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  circles: {
+  cerchio: {
     borderRadius: 28,
-    borderStyle: "solid",
-
-    borderWidth: 2, // ← senza questo il bordo non appare
-    backgroundColor: "red", // ← senza questo è trasparente
     height: 56,
     width: 56,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-  },
-  circle2: {
-    borderRadius: 28,
-    borderStyle: "solid",
-    borderWidth: 2, // ← senza questo il bordo non appare
-    backgroundColor: "grey", // ← senza questo è trasparente
-    height: 56,
-    width: 56,
-    justifyContent: "center",
-    alignItems: "center",
-    margin: 20,
-  },
-  circle3: {
-    borderRadius: 28,
-    borderStyle: "solid",
-
-    borderWidth: 2, // ← senza questo il bordo non appare
-    backgroundColor: "grey", // ← senza questo è trasparente
-    height: 56,
-    width: 56,
-    justifyContent: "center",
-    alignItems: "center",
     margin: 20,
   },
 });
