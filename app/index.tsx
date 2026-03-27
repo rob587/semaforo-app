@@ -44,11 +44,9 @@ const styles = StyleSheet.create({
   },
 
   box: {
-    height: 20,
-    width: 100,
     borderRadius: 20,
     backgroundColor: "#2a2a2a",
-    flex: 1,
+    height: 350,
     justifyContent: "center",
     alignItems: "center",
   },
